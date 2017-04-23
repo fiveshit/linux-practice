@@ -1,0 +1,9 @@
+---linux Authority user---
+only read is r :
+  can read paper or list table content
+only write is w :
+  can write and delete directory or table
+can execute is x :
+  can execute directory
+  can inside table use 'cd' change inside table
+no any Authority is -
