@@ -7,3 +7,11 @@ can execute is x :
   can execute directory
   can inside table use 'cd' change inside table
 no any Authority is -
+
+first (1)[d] <---- d: table -:directory
+three (2-4) <--- User
+three (5-7) <--- Group
+three (8-10) <--- other
+
+ex: drwx-w---- 
+    (1) table (2) user can read,write,execute (3) group can write (4) others no Authority
