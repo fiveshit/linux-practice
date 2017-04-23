@@ -1,3 +1,6 @@
+user all message safe for /etc/passed
+
+
 ---linux Authority user---
 only read is r :
   can read paper or list table content
@@ -15,3 +18,20 @@ three (8-10) <--- other
 
 ex: drwx-w---- 
     (1) table (2) user can read,write,execute (3) group can write (4) others no Authority
+
+
+----chmod introduce ---
+字母表示法:
+chmod [-R] mode file
+R: table and directory all will modify
+mode:
+  who       operator             permission
+  u(user)   +(add authority)          r
+  g(group)  -(minus authority)        w
+  o(others) =                         x
+  a(ugo)
+  
+  ex:
+  chmod u-r file # minus user is read authority
+  chmod a= file # all authority is clear
+  
