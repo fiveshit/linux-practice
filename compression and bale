@@ -1,0 +1,35 @@
+//linux support compression format extend name
+1) *.Z  ,compress
+2) *.gz ,gzip
+3) *.bz2,bzip2
+4) *.tar,tar not compression
+5) *.tar.gz, use tar bale after use gzip compress
+6) *.tar.bz2, use tar bale after use bzip2 compress
+
+//linux compress command
+1.gzip [-cdtv#] filename   (original file delelet)
+  1)extend name is *.gz
+  2)-c : compress data for screen
+  3)-d : discompress 
+  4)-t : chick file complete
+  5)-v : display compress rate
+  6)-# : compress degree -1 fast -9 slow 
+2.bzip2 [-cdzv#] filename  (original file retain)
+  1)extend name is *.bz2
+  2)-c : compress data for screen
+  3)-d : discompress 
+  4)-k : retain original file 
+  5)-z : compress parameter
+  6)-v : display compress rate
+  7)-# : compress degree -1 fast -9 slow 
+  
+// bale format
+1.  tar [-jcv] -f filename.tar.bz2 location(compress)
+2.  tar [-jxv] -f filename.tar.bz2 -C location(discompress)
+  1)-c : establish bale file
+  2)-t : inquire bale file content
+  3)-x : discompress or disbale, 
+  4)-j : use bz2 compress
+  5)-z : use gzip compress or discompress
+  6)-v : handle filename view now
+  7)-f : 
