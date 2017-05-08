@@ -1,0 +1,64 @@
+1)  main group
+    每個文件必須有一個群組所有者，因此必須有一個與每個小時用戶相關的默認組，這個默認組成為新建文件所有者，
+    被稱為作用戶的主要群組。用戶的主要群組在passwd文件中的第四個字段中定義
+2)  minor group
+    除了主要群組，用戶也可以根據需要再隸屬於其他群組，這些組被稱為次要群組，再group文件中的第四個字段中定義
+//add user
+useradd [-u UID] [-g init group] [-G minor group] [-mM] [-c description] [-d home location]
+        [-s shell]
+        1) -u : make a UID for user
+        2) -g : point main group name
+        3) -G : point minor group name
+        4) -M : no create user home location,default
+        5) -m : create user home location,default
+        6) -c : passwd file five number description word
+        7) -d : point user home location
+        8) -s : point shell ,if not point default /bin/bash
+ // user modify
+usermod [-cdegGlsuLU] username
+        1) -c : account description
+        2) -d : account home location
+        3) -e : point account limit date,YY-MM-DD
+        4) -G : modify minor group name
+        5) -g : modify main group name
+        6) -a and -G :increase minor group
+        7) -l : modify account name
+        8) -u : modify UID
+        9) -L : temporarily limit account user
+        10) -U : delimit account
+  // user delete
+  userdel [-r] username
+        1) -r : delete home location
+  //passwd modify
+  passwd
+  
+  // user message inspection
+  finger [-s] username
+         1) -s : list account,name,time
+  id, inspection UID
+  whoami
+  who&w
+  users
+  groups
+  
+  //default Authority
+  file authority 666
+  catalog authority 777
+  umask 0002
+  //user umask controll authority
+  file   666 = [rw-][rw-][rw-]
+  umask  002 = [---][-w-][-w-]
+  ------------------------------
+         664 = [rw-][r--][r--]
+    
+    
+  //create group 
+  groupadd [-d gid] [-r] name
+      1) -g : add name on back
+      2) -r : add system group
+  //modify group
+  groupmod [-g gid] [-n group_name] name
+      1) -g : modify GID
+      2) -n : modify group name
+   //delete group
+   groupdel [group name]
