@@ -1,0 +1,70 @@
+--------bash shell variable configuration-------
+set # can inquire all variable
+ex:
+  touch test
+  ll >list
+  cal >list  #cal view data inside list
+  ll >> list #append list back
+set -o onclobber
+set -o vi 
+
+env # can inquire environment variable
+
+VARIABLE = value
+echo $VARIABLE    #acquire variable value
+ex:
+  KEY1 = one
+  KEY2 = "test two"
+  KEY3 = "test $KEY2"
+  mysql = /root/......
+  cd $mysql     #speed input path
+  unset mysql #delete variable
+
+HISTFILESIZE   #history record max data
+set |grep HIST  
+'''
+HISTFILESIZE=1000
+HISTSIZE=1000
+'''
+COLUMNS   #terminal view width
+LINES     #terminal view high
+PS1       #set symbol forward content(\d,\h,\t,\u,\w,\!,\$,\l)
+ex:
+  set |grep PS1
+  '''
+  PS1='[\u@\h \W]\$　'
+  '''
+
+
+------Aliases(別名)-------
+alias cls = 'clear'  # clear == cls
+ex:
+  alias ll = 'ls -l'
+alias   # inquire all aliases
+type -a alias
+unalias #delete alias
+
+
+-----environment variable------
+HOME  
+LANG  #langage
+PWD
+PATH =/路徑　#因為有設置PATH所以系統才能找到指令位置
+ex:
+  PATH=$PATH:/路徑
+which xx   #research xx
+
+---shell startup scripts---
+###login or noo-login automatic excute shell
+login shell:
+ first /etc/profile(PATH/USER/HISTNAME/HISTSIZE)
+       /etc/profile.d/*.sh
+       ~/.bash_profile , ~/.bash_login , ~/.profile
+       ~/.bash_rc , /etc/bashrc
+       source  # 指令加載腳本的變更
+ non-login shell:
+  ~/.bash_rc , /etc/bashrc
+  /etc/profile.d/*.sh
+  ~/.bash_logout: backup、緩存、臨時文件、clear
+    
+  
