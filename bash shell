@@ -67,4 +67,42 @@ login shell:
   /etc/profile.d/*.sh
   ~/.bash_logout: backup、緩存、臨時文件、clear
     
+  --------data process--------
+  A >B     #A input data in B
+  A 1>B    #A correct data input in B
+  A 1>>B   #A correct data append in B 
+  A 2>B    #A fail data input in B
+  
+  ###multi excute way
+  1) &&
+  2) ||   
+  mkdir test&&cd test&&touch conf.txt
+  
+  ------pipeline command-----
+  1)command | connect
+  ex:
+    ls -la |more|grep hostname  #one by one working
+  2)(stdin),tail/more/gerp
+  3)grep[-cinv] 'key' filename
+    -c calculate number of times
+    -i ignore capital and lower case
+    -n output colunm
+    -v view word column sum
+  ex:
+    grep -n 'the' xxx
+    grep -ni 'THE' xxx
+    grep -ic 'THE' xxx
+   4)sort [-fbknrtu]
+   -f ignore capital and lower case
+   -b ignore forward space
+   -n nunber sort
+   -r reverse sort
+   -t tab
+   -k row sort
+   5) wc [-lwm]  #statistics
+    -l statistics column
+    -w statistics word
+    -m statistics alphabet
+   
+   
   
