@@ -39,7 +39,7 @@ ex:
 ------Aliases(別名)-------
 alias cls = 'clear'  # clear == cls
 ex:
-  alias ll = 'ls -l'
+  alias ll='ls -l'
 alias   # inquire all aliases
 type -a alias
 unalias #delete alias
