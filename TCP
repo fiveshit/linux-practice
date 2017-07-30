@@ -1,0 +1,38 @@
+#服務器端
+import socket
+import threading
+import time
+def tcplink(sock, addr):
+    print('Accept new connection from %s:%s...' %addr)
+    sock.send(b'Welcome!')
+    while True:
+        data = sock.recv(1024)
+        time.sleep(1)
+        if not data or data.decode('utf-8') == 'exit':
+            break
+        sock.send(('Hello, %s!'% data.decode('utf-8')).encode('utf-8'))
+    sock.close()
+    print('Connection form %s:%s closed' %addr)
+
+if __name__ =='__main__':
+    s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)  #創建一個IPv4跟TCP協議
+    s.bind(('0.0.0.0',9999))   #如果用127.0.0.1 就只能在本機上連接
+    s.listen(5)
+    print('Waiting for connetion')
+    while True:
+        sock, addr = s.accept()
+        t = threading.Thread(target = tcplink, args = (sock,addr))
+        t.start()
+        
+#用戶端
+import socket
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  
+
+s.connect(('連接用戶IP位址',9999))
+
+print(s.recv(1024).encode('utf-8'))
+for data in [b'Michael ', b'Tracy',b'Sarah']:
+    s.send(data)
+    print(s.recv(1024).decode('utf-8'))
+s.send(b'exit')
+s.close()
